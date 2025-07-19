@@ -8,6 +8,9 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -27,7 +30,7 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
-        name="index"
+        name="datos"
         options={{
           title: 'Datos',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="chart.bar" color={color} />,
