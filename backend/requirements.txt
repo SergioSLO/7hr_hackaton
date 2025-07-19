@@ -1,0 +1,8 @@
+google-generativeai
+google
+google-cloud-aiplatform
+speechrecognition
+openai-whisper
+google-cloud-speech
+pydub
+pytz
