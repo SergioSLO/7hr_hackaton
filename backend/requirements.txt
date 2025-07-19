@@ -6,3 +6,6 @@ openai-whisper
 google-cloud-speech
 pydub
 pytz
+fastapi
+sqlalchemy
+psycopg2-binary
