@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
@@ -29,22 +29,50 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Datos',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="chart.bar" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="historial"
+        options={{
+          title: 'Historial',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="clock.arrow.circlepath" color={color} />,
         }}
       />
       <Tabs.Screen
         name="bot"
         options={{
           title: 'Bot',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="mic.fill" color={color} />,
+        tabBarIcon: ({ color }) => (
+            <View
+                style={{
+                    backgroundColor: color,
+                    borderRadius: 28,
+                    width: 56,
+                    height: 56,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: -14, // para centrar el círculo en la barra
+                }}
+            >
+                <MaterialCommunityIcons name="robot-excited-outline" size={40} color="#fff" />
+            </View>
+            ),}}
+      />
+      <Tabs.Screen
+        name="preguntas"
+        options={{
+          title: 'Preguntas',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="questionmark.circle" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="resumen"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Resumen',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="doc.text" color={color} />,
         }}
       />
     </Tabs>
