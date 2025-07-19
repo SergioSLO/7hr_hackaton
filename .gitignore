@@ -1,4 +1,5 @@
 venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
@@ -10,5 +11,5 @@ __pycache__/
 *.pyzwz
 
 backend/h-hackathon-085af3656fa4.json
-
+.env
 .DS_Store
