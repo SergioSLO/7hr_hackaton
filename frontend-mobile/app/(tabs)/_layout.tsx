@@ -8,6 +8,9 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -44,7 +47,7 @@ export default function TabLayout() {
         name="bot"
         options={{
           title: 'Bot',
-          tabBarIcon: ({ color }) => <IconSymbol size={40} name="robot.fill" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="robot-excited-outline" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
