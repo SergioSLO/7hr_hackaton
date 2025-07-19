@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export default function DatosScreen() {
+export default function BotScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">Datos</ThemedText>
+      <ThemedText type="title">Bot</ThemedText>
     </ThemedView>
   );
 }
