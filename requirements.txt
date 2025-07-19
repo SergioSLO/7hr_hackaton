@@ -1,0 +1,4 @@
+llama-index>=0.10.34
+google-generativeai>=0.5.0
+dateparser
+google-cloud-speech
