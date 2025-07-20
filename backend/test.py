@@ -16,9 +16,9 @@ print("Loading Gemini model...")
 model = GenerativeModel("gemini-2.5-flash")
 
 # Convert M4A to WAV
-original_audio = "audio-test-insert-3.m4a"
-converted_audio = "converted-audio.wav"
-AudioSegment.from_file(original_audio).export(converted_audio, format="wav")
+# original_audio = "audio-test-insert-3.m4a"
+converted_audio = "FP.wav"
+# AudioSegment.from_file(original_audio).export(converted_audio, format="wav")
 
 print("Transcribing audio with Google Speech-to-Text...")
 client = speech.SpeechClient.from_service_account_file("h-hackathon-085af3656fa4.json")

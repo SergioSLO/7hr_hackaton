@@ -4,9 +4,17 @@ from pydantic import BaseModel
 from datetime import date
 from typing import List, Optional
 import psycopg2
-import os
-import json
-from jsonGenerator import processJSON
+
+# Datos de conexión (ajusta según tu entorno)
+conn = psycopg2.connect(
+    dbname="postgres",
+    host="34.95.244.127",
+    port="5432",
+    user="postgres",
+    password="123456"
+)
+
+cur = conn.cursor()
 
 app = FastAPI()
 
