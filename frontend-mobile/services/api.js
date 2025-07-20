@@ -20,3 +20,15 @@ export async function uploadAudio(uri) {
   console.log(response);
   return response;
 }
+
+export async function fetchTransactions(weekStart) {
+  try {
+    const response = await api.get('/movimientos', {
+      params: { weekStart },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching transactions', error);
+    throw error;
+  }
+}
