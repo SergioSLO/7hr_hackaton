@@ -5,6 +5,8 @@ import { BarChart } from 'react-native-chart-kit';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { fetchTransactions } from '@/services/api';
+import { Colors } from '@/constants/Colors';
+import {useColorScheme} from "@/hooks/useColorScheme";
 
 interface Transaction {
   tipo: string;
@@ -15,6 +17,7 @@ interface Transaction {
 }
 
 export default function DatosScreen() {
+    const colorScheme = useColorScheme();
   const [weekOffset, setWeekOffset] = useState(0); // 0 = current week
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
@@ -67,11 +70,11 @@ export default function DatosScreen() {
         fromZero
         showValuesOnTopOfBars
         chartConfig={{
-          backgroundColor: '#ffffff',
-          backgroundGradientFrom: '#ffffff',
-          backgroundGradientTo: '#ffffff',
+          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          backgroundGradientFrom: Colors[colorScheme ?? 'light'].background,
+          backgroundGradientTo: Colors[colorScheme ?? 'light'].background,
           decimalPlaces: 2,
-          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          color: (opacity = 1) => Colors[colorScheme ?? 'light'].text,
         }}
         style={styles.chart}
       />

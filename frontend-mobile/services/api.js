@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://132.191.1.161:8000',
+  baseURL: 'http://172.20.10.2:8000',
 });
 
 export async function uploadAudio(uri) {
@@ -13,7 +13,7 @@ export async function uploadAudio(uri) {
   });
   console.log(formData);
 
-  const response = await api.post('/audio', formData, {
+  const response = await api.post('/upload-audio/', formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
 

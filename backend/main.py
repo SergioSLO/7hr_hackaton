@@ -1,8 +1,10 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import JSONResponse
+from jsonGenerator import processJSON
 from pydantic import BaseModel
 from datetime import date
 from typing import List, Optional
+import os
 import psycopg2
 
 # Datos de conexión (ajusta según tu entorno)
@@ -131,11 +133,12 @@ def listar_movimientos():
 async def upload_audio(file: UploadFile = File(...)):
     try:
         # Validar tipo de archivo
-        if not file.filename.lower().endswith(('.wav', '.mp3', '.ogg', '.flac')):
+        if not file.filename.lower().endswith(('.wav', '.mp3', '.ogg', '.flac', '.m4a')):
             raise HTTPException(status_code=400, detail="Formato de audio no soportado")
 
         os.makedirs("temp_audios", exist_ok=True)
         file_path = f"temp_audios/{file.filename}"
+
         
         with open(file_path, "wb") as f:
             f.write(await file.read())
