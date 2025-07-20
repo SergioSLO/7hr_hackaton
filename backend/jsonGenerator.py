@@ -14,8 +14,8 @@ def processJSON(audioPath: str):
     return executePrompt(transcript)
 
 def transcribeAudioPath(audioPath: str):
-    convertedAudio = "converted-audio.wav"
-    AudioSegment.from_file(audioPath).export(convertedAudio, format="wav")
+    convertedAudio = audioPath
+    #AudioSegment.from_file(audioPath).export(convertedAudio, format="wav")
 
     print("Transcribing audio with Google Speech-to-Text...")
     client = speech.SpeechClient.from_service_account_file("h-hackathon-085af3656fa4.json")
