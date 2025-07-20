@@ -6,11 +6,11 @@ import psycopg2
 
 # Datos de conexión (ajusta según tu entorno)
 conn = psycopg2.connect(
-    dbname="mi_basedatos",
-    user="mi_usuario",
-    password="mi_contraseña",
-    host="localhost",
-    port="5432"
+    dbname="postgres",
+    host="34.95.244.127",
+    port="5432",
+    user="postgres",
+    password="123456"
 )
 
 cur = conn.cursor()
