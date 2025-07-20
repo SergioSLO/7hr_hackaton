@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from datetime import date
 from typing import List, Optional
+from funciones_sql import *
 import psycopg2
 
 # Datos de conexión (ajusta según tu entorno)
@@ -153,17 +154,10 @@ async def upload_audio(file: UploadFile = File(...)):
 
         if resultado.strip().upper().startswith("SELECT"):
             # Es una consulta SQL
-            conn = None
-            cur = None
             try:
-                conn = get_connection()
-                cur = conn.cursor()
-                cur.execute(resultado)
-                rows = cur.fetchall()
-                cols = [desc[0] for desc in cur.description] if cur.description else []
                 return JSONResponse(content={
                     "type": "consulta", 
-                    "data": [dict(zip(cols, row)) for row in rows]
+                    "data": ejecutar_query(resultado.strip())
                 })
             except Exception as e:
                 raise HTTPException(status_code=400, detail=f"Error en consulta SQL: {str(e)}")
